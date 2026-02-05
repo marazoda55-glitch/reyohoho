@@ -1,6 +1,6 @@
 <template>
-  <div class="player-container">
-    <div id="kinobox_player" style="width: 100%; height: 550px; background: #000; border-radius: 12px;"></div>
+  <div class="player-wrapper">
+    <div id="kinobox_player" style="width: 100%; height: 550px; background: #000;"></div>
   </div>
 </template>
 
