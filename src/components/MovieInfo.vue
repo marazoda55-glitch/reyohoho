@@ -9,6 +9,7 @@
 <script>
 import PlayerComponent from './PlayerComponent.vue';
 export default {
+  name: 'MovieInfo',
   components: { PlayerComponent }
 }
 </script>
