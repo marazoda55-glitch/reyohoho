@@ -7,7 +7,6 @@
           <div class="movie-skeleton__header">
             <div class="movie-skeleton__title"></div>
           </div>
-
           <div class="movie-skeleton__ratings">
             <div class="movie-skeleton__rating-item"></div>
             <div class="movie-skeleton__rating-item"></div>
