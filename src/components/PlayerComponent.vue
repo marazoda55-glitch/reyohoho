@@ -1,6 +1,6 @@
 <template>
-  <div class="player-box">
-    <div id="kinobox_player" style="width: 100%; height: 550px; background: #000;"></div>
+  <div class="player-container">
+    <div id="kinobox_player" style="width: 100%; height: 550px; background: #000; border-radius: 12px;"></div>
   </div>
 </template>
 
@@ -9,10 +9,10 @@ export default {
   name: 'PlayerComponent',
   props: ['id'],
   mounted() {
-    this.loadKinobox();
+    this.initPlayer();
   },
   methods: {
-    loadKinobox() {
+    initPlayer() {
       const script = document.createElement('script');
       script.src = 'https://kinobox.tv/static/kinobox.min.js';
       script.async = true;
