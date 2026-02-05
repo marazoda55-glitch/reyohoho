@@ -1,23 +1,6 @@
 <template>
   <div class="movie-info">
     <div id="kinobox_player" style="width: 100%; height: 550px; margin-bottom: 20px; background: #000;"></div>
-<script>
-  (function() {
-    const kpId = window.location.pathname.split('/').pop(); // Автоматически берем ID из ссылки
-    const script = document.createElement('script');
-    script.src = 'https://kinobox.tv/static/kinobox.min.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.Kinobox) {
-        new window.Kinobox('#kinobox_player', {
-          search: { kinopoisk: kpId },
-          menu: { enable: true, default: 'Просмотр' }
-        }).init();
-      }
-    };
-    document.head.appendChild(script);
-  })();
-</script>
     <div class="content">
       <div v-if="(infoLoading || !movieInfo) && !errorMessage" class="content-card">
         <div class="movie-skeleton">
