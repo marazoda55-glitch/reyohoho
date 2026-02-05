@@ -1,4 +1,56 @@
 <template>
+  <div class="player-wrapper">
+    <div id="kinobox_player"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  // Пропс, который принимает ID фильма (обычно передается из Movie.vue)
+  props: ['id'], 
+  mounted() {
+    this.loadPlayer();
+  },
+  methods: {
+    loadPlayer() {
+      // Динамически загружаем скрипт плеера, чтобы не нагружать сайт
+      const script = document.createElement('script');
+      script.src = 'https://kinobox.tv/static/kinobox.min.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.Kinobox) {
+          new window.Kinobox('#kinobox_player', {
+            search: { 
+              // Используем ID, который пришел в компонент
+              kinopoisk: this.id 
+            },
+            menu: {
+              enable: true, // Включает выбор разных плееров (Kodik, Alloha и др.)
+              default: 'Просмотр'
+            }
+          }).init();
+        }
+      };
+      document.head.appendChild(script);
+    }
+  }
+}
+</script>
+
+<style scoped>
+.player-wrapper {
+  width: 100%;
+  min-height: 500px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+#kinobox_player {
+  width: 100%;
+  height: 100%;
+}
+</style><template>
   <ErrorMessage v-if="errorMessage" :message="errorMessage" :code="errorCode" />
 
   <template v-else>
